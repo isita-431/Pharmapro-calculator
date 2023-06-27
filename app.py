@@ -92,13 +92,13 @@ with col2:
         f = 1
 
     if f==1:
-        b = st.button("Enter your email to get TAM value")
-        if b:
-            email = st.text(" Enter the email : ")
-            sheet = client.open('form_to_sheet').sheet1
-            tam_value = number_of_people*number
-            l = [number, str(option1),str(option2),str(option3),tam_value,email]
-            sheet.append_rows(l)
+        b = st.write("Enter your email to get TAM value")
+        
+        email = st.text(" Enter the email : ")
+        sheet = client.open('form_to_sheet').sheet1
+        tam_value = number_of_people*number
+        l = [number, str(option1),str(option2),str(option3),tam_value,email]
+        sheet.append_rows(l)
             
             # # Read data from the sheet
             # data = sheet.get_all_records()
