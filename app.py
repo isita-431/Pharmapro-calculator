@@ -96,7 +96,7 @@ with col2:
             }
             pdfkit.from_file('streamlit_app.py', 'output.pdf', options=options)
             pdf_file = BytesIO(pdf_data)
-
+            st.write('checking')
             st.download_button(
             label='Download PDF',
             data=pdf_file,
