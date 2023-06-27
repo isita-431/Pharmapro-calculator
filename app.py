@@ -62,6 +62,7 @@ with col1:
         option1 = st.multiselect("Select a speciality", df['Specialization'].unique())
         option2 = st.multiselect("Select a Location", df['Location'].unique())
         option3 = st.multiselect("Select years of experience",['1-5','6-10','11-15','16-20','21-25','>25'])
+        option4 = st.text_input("Enter your email to get the TAM value mailed : ")
         submit_button = st.form_submit_button("Submit")
     
     # Add content to the left column
@@ -92,9 +93,9 @@ with col2:
         st.write(str(number_of_people*number))
         f = 1
         st.write("Enter your email to get TAM value")
-        with st.form("email_form"):
-            email = st.text_input(" Enter the email : ")
-            button_submit = st.form_submit_button("Submit email")
+        # with st.form("email_form"):
+        #     email = st.text_input(" Enter the email : ")
+        #     button_submit = st.form_submit_button("Submit email")
         # with st.form("email_form"):
         #     email = st.text_input(" Enter the email : ")
         #     submit_button = st.form_submit_button("Submit")
@@ -103,7 +104,7 @@ with col2:
         tam_value = number_of_people*number
                 # b = st.button('Click this button')
                 # if b:
-        l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
+        l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,option4]
         st.write(l)
         sheet.append_row(l)
             
