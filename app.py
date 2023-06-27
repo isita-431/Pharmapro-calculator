@@ -8,7 +8,7 @@ from urllib3.exceptions import ReadTimeoutError
 from geopy.exc import GeocoderTimedOut
 import plotly.express as px
 import pdfkit
-from weasyprint import HTML
+# from weasyprint import HTML
 from io import BytesIO
 
 # Create two columns
@@ -89,37 +89,37 @@ with col2:
         st.write("Calculating your TAM Value")
         st.write(str(number_of_people*number))
         f = 1
-    if f==1:
-        # Create an HTML string with the input and output
-        st.write(number)
-        st.write(option1)
-        st.write(option2)
-        st.write(option3)
-        html_content = f"""
-        <html>
-        <body>
-            <h2>User Inputs:</h2>
-            <p>Value: {number}</p>
-            <p>Specialization: {option1}</p>
-            <p>Location: {option2}</p>
-            <p>Years of Experience: {option3}</p>
+    # if f==1:
+    #     # Create an HTML string with the input and output
+    #     st.write(number)
+    #     st.write(option1)
+    #     st.write(option2)
+    #     st.write(option3)
+    #     html_content = f"""
+    #     <html>
+    #     <body>
+    #         <h2>User Inputs:</h2>
+    #         <p>Value: {number}</p>
+    #         <p>Specialization: {option1}</p>
+    #         <p>Location: {option2}</p>
+    #         <p>Years of Experience: {option3}</p>
 
-            <h2>Output:</h2>
-            <p>The number of doctors is: {number_of_people}</p>
-            <p>TAM Value: {number_of_people * number}</p>
-        </body>
-        </html>
-        """
-        pdf_bytes = HTML(string=html_content).write_pdf()
+    #         <h2>Output:</h2>
+    #         <p>The number of doctors is: {number_of_people}</p>
+    #         <p>TAM Value: {number_of_people * number}</p>
+    #     </body>
+    #     </html>
+    #     """
+    #     pdf_bytes = HTML(string=html_content).write_pdf()
 
-        # Display the PDF
-        st.write(pdf_bytes, unsafe_allow_html=True)
-        st.download_button(
-            label='Download PDF',
-            data=pdf_bytes,
-            file_name='output.pdf',
-            mime='application/pdf'
-        )
+    #     # Display the PDF
+    #     st.write(pdf_bytes, unsafe_allow_html=True)
+    #     st.download_button(
+    #         label='Download PDF',
+    #         data=pdf_bytes,
+    #         file_name='output.pdf',
+    #         mime='application/pdf'
+    #     )
 
         # # Create a BytesIO object to hold the PDF data
         # pdf_file = BytesIO()
