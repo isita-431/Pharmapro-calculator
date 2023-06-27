@@ -97,7 +97,7 @@ with col2:
         email = st.text_input(" Enter the email : ")
         sheet = client.open('form_to_sheet').sheet1
         tam_value = number_of_people*number
-        l = [number, option1,option2,option3,tam_value,email]
+        l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
         sheet.append_row(l)
             
             # # Read data from the sheet
