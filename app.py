@@ -13,7 +13,7 @@ from io import BytesIO
 from time import sleep
 
 # Create two columns
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 # Content for the left column
 with col1:
@@ -90,22 +90,26 @@ with col2:
         st.write("The number of the doctors are : "+ str((number_of_people)))
         st.write("Calculating your TAM Value")
         st.write(str(number_of_people*number))
-        f = 1
-
-    if f==1:
-        
-        b = st.write("Enter your email to get TAM value")
+        st.write("Enter your email to get TAM value")
         with st.form("email_form"):
             email = st.text_input(" Enter the email : ")
-            submit_button = st.form_submit_button("Submit")
-        if submit_button:    
-            sheet = client.open('form_to_sheet').sheet1
-            tam_value = number_of_people*number
+            button_submit = st.form_submit_button("Submit email")
+        f = 1
+with col3:
+    st.header("Output : ")
+    
+        
+        # with st.form("email_form"):
+        #     email = st.text_input(" Enter the email : ")
+        #     submit_button = st.form_submit_button("Submit")
+    if button_submit:    
+        sheet = client.open('form_to_sheet').sheet1
+        tam_value = number_of_people*number
             # b = st.button('Click this button')
             # if b:
-            l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
-            st.write(l)
-            sheet.append_row(l)
+        l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
+        st.write(l)
+        sheet.append_row(l)
             
             # # Read data from the sheet
             # data = sheet.get_all_records()
