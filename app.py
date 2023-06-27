@@ -8,6 +8,7 @@ from urllib3.exceptions import ReadTimeoutError
 from geopy.exc import GeocoderTimedOut
 import plotly.express as px
 import pdfkit
+from weasyprint import HTML
 from io import BytesIO
 
 # Create two columns
@@ -109,23 +110,34 @@ with col2:
         </body>
         </html>
         """
+        pdf_bytes = HTML(string=html_content).write_pdf()
 
-        # Create a BytesIO object to hold the PDF data
-        pdf_file = BytesIO()
-
-        # Convert the HTML to PDF and save it in the BytesIO object
-        pdfkit.from_string(html_content, pdf_file)
-
-        # Set the BytesIO object's position to the start
-        pdf_file.seek(0)
-
-        # Provide the option to download the PDF file
+        # Display the PDF
+        st.write(pdf_bytes, unsafe_allow_html=True)
         st.download_button(
             label='Download PDF',
-            data=pdf_file,
+            data=pdf_bytes,
             file_name='output.pdf',
             mime='application/pdf'
         )
+
+        # # Create a BytesIO object to hold the PDF data
+        # pdf_file = BytesIO()
+
+        # # Convert the HTML to PDF and save it in the BytesIO object
+        # pdfkit.from_string(html_content, pdf_file)
+
+        # # Set the BytesIO object's position to the start
+        # pdf_file.seek(0)
+
+        # # Provide the option to download the PDF file
+        # st.download_button(
+        #     label='Download PDF',
+        #     data=pdf_file,
+        #     file_name='output.pdf',
+        #     mime='application/pdf'
+        # )
+        
     # Add content to the right column
 
 
