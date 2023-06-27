@@ -100,6 +100,7 @@ if f==1:
     b = st.button('Click this button')
     if b:
         l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
+        st.write(l)
         sheet.append_row(l)
             
             # # Read data from the sheet
