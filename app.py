@@ -97,8 +97,8 @@ with col2:
         email = st.text_input(" Enter the email : ")
         sheet = client.open('form_to_sheet').sheet1
         tam_value = number_of_people*number
-        # b = st.button('Click this button')
-        if email:
+        b = st.button('Click this button')
+        if b:
             l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
             st.write(l)
             sheet.append_row(l)
