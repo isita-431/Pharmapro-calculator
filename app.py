@@ -91,17 +91,17 @@ with col2:
         st.write(str(number_of_people*number))
         f = 1
 
-if f==1:
-    b = st.write("Enter your email to get TAM value")
-        
-    email = st.text_input(" Enter the email : ")
-    sheet = client.open('form_to_sheet').sheet1
-    tam_value = number_of_people*number
-    b = st.button('Click this button')
-    if b:
-        l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
-        st.write(l)
-        sheet.append_row(l)
+    if f==1:
+        b = st.write("Enter your email to get TAM value")
+            
+        email = st.text_input(" Enter the email : ")
+        sheet = client.open('form_to_sheet').sheet1
+        tam_value = number_of_people*number
+        # b = st.button('Click this button')
+        if email:
+            l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
+            st.write(l)
+            sheet.append_row(l)
             
             # # Read data from the sheet
             # data = sheet.get_all_records()
