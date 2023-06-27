@@ -10,6 +10,7 @@ from urllib3.exceptions import ReadTimeoutError
 from geopy.exc import GeocoderTimedOut
 import plotly.express as px
 import pandas as pd
+import pdfkit
 
 import streamlit as st
 
@@ -89,6 +90,15 @@ with col2:
         st.write("The number of the doctors are : "+ str((number_of_people)))
         st.write("Calculating your TAM Value")
         st.write(str(number_of_people*number))
+        if st.button("Save as PDF"):
+            options = {
+            'page-size': 'A4',
+            'margin-top': '0mm',
+            'margin-right': '0mm',
+            'margin-bottom': '0mm',
+            'margin-left': '0mm',
+            }
+            pdfkit.from_file('streamlit_app.py', 'output.pdf', options=options)
     # Add content to the right column
 
 
