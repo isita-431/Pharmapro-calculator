@@ -64,11 +64,11 @@ with col1:
         submit_button = st.form_submit_button("Submit")
     
     # Add content to the left column
-
+f = 0
 # Content for the right column
 with col2:
     st.header("Output : ")
-    f = 0
+    
     if submit_button:
         number_of_people = 0
         for option in option3:
@@ -91,16 +91,16 @@ with col2:
         st.write(str(number_of_people*number))
         f = 1
 
-    if f==1:
-        b = st.write("Enter your email to get TAM value")
+if f==1:
+    b = st.write("Enter your email to get TAM value")
         
-        email = st.text_input(" Enter the email : ")
-        sheet = client.open('form_to_sheet').sheet1
-        tam_value = number_of_people*number
-        b = st.button('Click this button')
-        if b:
-            l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
-            sheet.append_row(l)
+    email = st.text_input(" Enter the email : ")
+    sheet = client.open('form_to_sheet').sheet1
+    tam_value = number_of_people*number
+    b = st.button('Click this button')
+    if b:
+        l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
+        sheet.append_row(l)
             
             # # Read data from the sheet
             # data = sheet.get_all_records()
