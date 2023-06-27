@@ -10,6 +10,7 @@ import plotly.express as px
 import pdfkit
 # from weasyprint import HTML
 from io import BytesIO
+from time import sleep
 
 # Create two columns
 col1, col2 = st.columns(2)
@@ -95,13 +96,14 @@ with col2:
         b = st.write("Enter your email to get TAM value")
             
         email = st.text_input(" Enter the email : ")
+        sleep(30)
         sheet = client.open('form_to_sheet').sheet1
         tam_value = number_of_people*number
-        b = st.button('Click this button')
-        if b:
-            l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
-            st.write(l)
-            sheet.append_row(l)
+        # b = st.button('Click this button')
+        # if b:
+        l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
+        st.write(l)
+        sheet.append_row(l)
             
             # # Read data from the sheet
             # data = sheet.get_all_records()
