@@ -90,6 +90,10 @@ with col2:
         f = 1
     if f==1:
         # Create an HTML string with the input and output
+        st.write(number)
+        st.write(option1)
+        st.write(option2)
+        st.write(option3)
         html_content = f"""
         <html>
         <body>
