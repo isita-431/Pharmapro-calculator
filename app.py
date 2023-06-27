@@ -3,16 +3,12 @@ import gspread
 import pandas as pd
 from geopy.geocoders import Nominatim
 from oauth2client.service_account import ServiceAccountCredentials
-import streamlit as st
-import pandas as pd
 from geopy.geocoders import Nominatim
 from urllib3.exceptions import ReadTimeoutError
 from geopy.exc import GeocoderTimedOut
 import plotly.express as px
-import pandas as pd
 import pdfkit
-
-import streamlit as st
+from io import BytesIO
 
 # Create two columns
 col1, col2 = st.columns(2)
@@ -99,6 +95,14 @@ with col2:
             'margin-left': '0mm',
             }
             pdfkit.from_file('streamlit_app.py', 'output.pdf', options=options)
+            pdf_file = BytesIO(pdf_data)
+
+            st.download_button(
+            label='Download PDF',
+            data=pdf_file,
+            file_name='output.pdf',
+            mime='application/pdf'
+            )
     # Add content to the right column
 
 
