@@ -98,14 +98,14 @@ with col2:
         # with st.form("email_form"):
         #     email = st.text_input(" Enter the email : ")
         #     submit_button = st.form_submit_button("Submit")
-        if button_submit:    
-            sheet = client.open('form_to_sheet').sheet1
-            tam_value = number_of_people*number
+        # if button_submit:    
+        sheet = client.open('form_to_sheet').sheet1
+        tam_value = number_of_people*number
                 # b = st.button('Click this button')
                 # if b:
-            l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
-            st.write(l)
-            sheet.append_row(l)
+        l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,email]
+        st.write(l)
+        sheet.append_row(l)
             
             # # Read data from the sheet
             # data = sheet.get_all_records()
