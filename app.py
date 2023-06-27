@@ -98,7 +98,7 @@ with col2:
         sheet = client.open('form_to_sheet').sheet1
         tam_value = number_of_people*number
         l = [number, option1,option2,option3,tam_value,email]
-        sheet.append_rows(l)
+        sheet.append_row(l)
             
             # # Read data from the sheet
             # data = sheet.get_all_records()
