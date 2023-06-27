@@ -97,6 +97,7 @@ with col2:
         b = st.write("Enter your email to get TAM value")
         with st.form("email_form"):
             email = st.text_input(" Enter the email : ")
+            submit_button = st.form_submit_button("Submit")
         if submit_button:    
             sheet = client.open('form_to_sheet').sheet1
             tam_value = number_of_people*number
