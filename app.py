@@ -33,7 +33,7 @@ with col1:
     # Set up Google Sheets credentials
     creds = ServiceAccountCredentials.from_json_keyfile_dict(credentials)
     client = gspread.authorize(creds)
-
+    
     # Access the Google Sheet
     sheet = client.open('urologist').sheet1
 
@@ -94,7 +94,7 @@ with col2:
     if f==1:
         b = st.write("Enter your email to get TAM value")
         
-        email = st.text(" Enter the email : ")
+        email = st.text_input(" Enter the email : ")
         sheet = client.open('form_to_sheet').sheet1
         tam_value = number_of_people*number
         l = [number, str(option1),str(option2),str(option3),tam_value,email]
