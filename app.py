@@ -60,8 +60,7 @@ with col1:
         st.write("Enter the necessary information " )
         option1 = st.multiselect("Select a speciality", df['Specialization'].unique())
         option2 = st.multiselect("Select a Location", df['Location'].unique())
-        option3 = st.selectbox("Select years of experience",['1-5','6-10','11-15','16-20',
-                                                                  '21-25','>25'])
+        option3 = st.multiselect("Select years of experience",['1-5','6-10','11-15','16-20','21-25','>25'])
         submit_button = st.form_submit_button("Submit")
     
     # Add content to the left column
@@ -71,20 +70,22 @@ with col2:
     st.header("Output : ")
     f = 0
     if submit_button:
-        if option3 == '1-5':
-            number_of_people = len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & (df['Experience(years)']<= 5)])
-        elif option3 == '6-10':
-            number_of_people = len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & ((df['Experience(years)']>=6) & (df['Experience(years)']<=10))])
-        elif option3 == '11-15':
-            number_of_people = len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & ((df['Experience(years)']>=11) & (df['Experience(years)']<=15))])
-        elif option3 == '16-20':
-            number_of_people = len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & ((df['Experience(years)']>=16) & (df['Experience(years)']<=20))])
-        elif option3 == '21-25':
-            number_of_people = len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & ((df['Experience(years)']>=21) & (df['Experience(years)']<=25))])
-        elif option3 == '>25':
-            number_of_people = len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & ((df['Experience(years)']>25))])
+        number_of_people = 0
+        for option in option3:
+            if option == '1-5':
+                number_of_people += len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & (df['Experience(years)']<= 5)])
+            elif option == '6-10':
+                number_of_people += len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & ((df['Experience(years)']>=6) & (df['Experience(years)']<=10))])
+            elif option == '11-15':
+                number_of_people += len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & ((df['Experience(years)']>=11) & (df['Experience(years)']<=15))])
+            elif option == '16-20':
+                number_of_people += len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & ((df['Experience(years)']>=16) & (df['Experience(years)']<=20))])
+            elif option == '21-25':
+                number_of_people += len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & ((df['Experience(years)']>=21) & (df['Experience(years)']<=25))])
+            elif option == '>25':
+                number_of_people += len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & ((df['Experience(years)']>25))])
         
-
+        st.write(f"Number of People: {number_of_people}")
         st.write("The number of the doctors are : "+ str((number_of_people)))
         st.write("Calculating your TAM Value")
         st.write(str(number_of_people*number))
