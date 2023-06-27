@@ -90,6 +90,21 @@ with col2:
         st.write("Calculating your TAM Value")
         st.write(str(number_of_people*number))
         f = 1
+
+    if f==1:
+        if button("Enter your email to get TAM value"):
+            email = st.text(" Enter the email : ")
+            sheet = client.open('form_to_sheet').sheet1
+            tam_value = number_of_people*number
+            l = [number, str(option1),str(option2),str(option3),tam_value,email]
+            sheet.append_rows(l)
+            
+            # # Read data from the sheet
+            # data = sheet.get_all_records()
+            
+
+            
+        
     # if f==1:
     #     # Create an HTML string with the input and output
     #     st.write(number)
