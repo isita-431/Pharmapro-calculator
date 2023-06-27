@@ -95,7 +95,7 @@ with col2:
     if f==1:
         
         b = st.write("Enter your email to get TAM value")
-        with st.form("my_form"):
+        with st.form("email_form"):
             email = st.text_input(" Enter the email : ")
         if submit_button:    
             sheet = client.open('form_to_sheet').sheet1
