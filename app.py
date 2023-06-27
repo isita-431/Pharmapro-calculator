@@ -68,6 +68,7 @@ with col1:
 # Content for the right column
 with col2:
     st.header("Output : ")
+    f = 0
     if submit_button:
         if option3 == '1-5':
             number_of_people = len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & (df['Experience(years)']<= 5)])
@@ -86,7 +87,8 @@ with col2:
         st.write("The number of the doctors are : "+ str((number_of_people)))
         st.write("Calculating your TAM Value")
         st.write(str(number_of_people*number))
-    if st.button("Save as PDF"):
+        f = 1
+    if f==1:
         # Create an HTML string with the input and output
         html_content = f"""
         <html>
