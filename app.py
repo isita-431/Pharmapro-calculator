@@ -86,23 +86,40 @@ with col2:
         st.write("The number of the doctors are : "+ str((number_of_people)))
         st.write("Calculating your TAM Value")
         st.write(str(number_of_people*number))
-        if st.button("Save as PDF"):
-            options = {
-            'page-size': 'A4',
-            'margin-top': '0mm',
-            'margin-right': '0mm',
-            'margin-bottom': '0mm',
-            'margin-left': '0mm',
-            }
-            pdfkit.from_file('streamlit_app.py', 'output.pdf', options=options)
-            pdf_file = BytesIO(pdf_data)
-            st.write('checking')
-            st.download_button(
+    if st.button("Save as PDF"):
+        # Create an HTML string with the input and output
+        html_content = f"""
+        <html>
+        <body>
+            <h2>User Inputs:</h2>
+            <p>Value: {number}</p>
+            <p>Specialization: {option1}</p>
+            <p>Location: {option2}</p>
+            <p>Years of Experience: {option3}</p>
+
+            <h2>Output:</h2>
+            <p>The number of doctors is: {number_of_people}</p>
+            <p>TAM Value: {number_of_people * number}</p>
+        </body>
+        </html>
+        """
+
+        # Create a BytesIO object to hold the PDF data
+        pdf_file = BytesIO()
+
+        # Convert the HTML to PDF and save it in the BytesIO object
+        pdfkit.from_string(html_content, pdf_file)
+
+        # Set the BytesIO object's position to the start
+        pdf_file.seek(0)
+
+        # Provide the option to download the PDF file
+        st.download_button(
             label='Download PDF',
             data=pdf_file,
             file_name='output.pdf',
             mime='application/pdf'
-            )
+        )
     # Add content to the right column
 
 
