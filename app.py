@@ -90,15 +90,10 @@ with col1:
         # option4 = st.text_input("Enter your email to get the TAM value mailed : ")
         # o4 = option4
         submit_button = st.form_submit_button("Submit")
-    
-    # Add content to the left column
-f = 0
-# Content for the right column
-tam_value2 = 0
-n3 =0
+
 with col2:
     st.header("Output : ")
-    n3 = 0
+
     if submit_button:
         # st.write(f"Number of People: {n1}")
         st.write("The number of the doctors are : "+ str((n3)))
