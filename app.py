@@ -114,7 +114,7 @@ with col2:
         tam_value = number_of_people*number
                 # b = st.button('Click this button')
                 # if b:
-        l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,option4]
+        l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value]
         # st.write(l)
         sheet.append_row(l)
 with st.form("my_email"):
