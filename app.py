@@ -114,7 +114,7 @@ with col2:
         # if button_submit:    
         # sheet = client.open('form_to_sheet').sheet1
         tam_value = number_of_people*number
-        tam_value = tam_value2
+        tam_value2 = tam_value
                 # b = st.button('Click this button')
                 # if b:
         # l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value]
@@ -128,8 +128,7 @@ if submit_button2:
     sheet = client.open('form_to_sheet').sheet1
     l = [n1, ' '.join(o1),' '.join(o2),' '.join(o3),tam_value2, o5]
     sheet.append_row(l)
-    
-st.write(l)
+    st.write(l)
             # # Read data from the sheet
             # data = sheet.get_all_records()
             
