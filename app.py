@@ -19,7 +19,8 @@ o2 = ''
 o3 = ''
 # o4 = ''
 o5 = ''
-
+tam_value2 = ''
+n1 =''
 
 # Content for the left column
 with col1:
@@ -64,6 +65,7 @@ with col1:
 
     with st.form("my_form"):
         number = st.number_input("Enter a Value")
+        n1 = number
         st.write("Enter the necessary information " )
         option1 = st.multiselect("Select a speciality", df['Specialization'].unique())
         o1 = option1
@@ -110,21 +112,24 @@ with col2:
         #     email = st.text_input(" Enter the email : ")
         #     submit_button = st.form_submit_button("Submit")
         # if button_submit:    
-        sheet = client.open('form_to_sheet').sheet1
+        # sheet = client.open('form_to_sheet').sheet1
         tam_value = number_of_people*number
+        tam_value = tam_value2
                 # b = st.button('Click this button')
                 # if b:
-        l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value]
+        # l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value]
         # st.write(l)
-        sheet.append_row(l)
+        # sheet.append_row(l)
 with st.form("my_email"):
     option5 = st.text_input("Enter your email to get the TAM value mailed : ")
     o5 = option5
     submit_button2 = st.form_submit_button("Submit Email")
+if submit_button2:
+    sheet = client.open('form_to_sheet').sheet1
+    l = [n1, ' '.join(o1),' '.join(o2),' '.join(o3),tam_value2, o5]
+    sheet.append_row(l)
     
-    
-
-st.write(o1,o2,o3,o5)
+st.write(l)
             # # Read data from the sheet
             # data = sheet.get_all_records()
             
