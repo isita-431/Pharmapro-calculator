@@ -115,6 +115,7 @@ with col2:
         # sheet = client.open('form_to_sheet').sheet1
         tam_value = number_of_people*number
         tam_value2 = tam_value
+        st.write(tam_value2)
                 # b = st.button('Click this button')
                 # if b:
         # l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value]
