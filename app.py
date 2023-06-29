@@ -8,7 +8,6 @@ from urllib3.exceptions import ReadTimeoutError
 from geopy.exc import GeocoderTimedOut
 import plotly.express as px
 import pdfkit
-# from weasyprint import HTML
 from io import BytesIO
 from time import sleep
 
@@ -72,21 +71,8 @@ with col1:
         o2 = option2
         option3 = st.multiselect("Select years of experience",['1-5','6-10','11-15','16-20','21-25','>25'])
         o3 = option3
-        # option4 = st.text_input("Enter your email to get the TAM value mailed : ")
-        # o4 = option4
-        submit_button = st.form_submit_button("Submit")
-    
-    # Add content to the left column
-f = 0
-# Content for the right column
-tam_value2 = 0
-n3 =0
-with col2:
-    st.header("Output : ")
-    n3 = 0
-    if submit_button:
         number_of_people = 0
-        n3 = number_of_people
+        
         for option in option3:
             if option == '1-5':
                 number_of_people += len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & (df['Experience(years)']<= 5)])
@@ -100,11 +86,24 @@ with col2:
                 number_of_people += len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & ((df['Experience(years)']>=21) & (df['Experience(years)']<=25))])
             elif option == '>25':
                 number_of_people += len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & ((df['Experience(years)']>25))])
-        
-        st.write(f"Number of People: {number_of_people}")
-        st.write("The number of the doctors are : "+ str((number_of_people)))
+        n3 = number_of_people
+        # option4 = st.text_input("Enter your email to get the TAM value mailed : ")
+        # o4 = option4
+        submit_button = st.form_submit_button("Submit")
+    
+    # Add content to the left column
+f = 0
+# Content for the right column
+tam_value2 = 0
+n3 =0
+with col2:
+    st.header("Output : ")
+    n3 = 0
+    if submit_button:
+        # st.write(f"Number of People: {n1}")
+        st.write("The number of the doctors are : "+ str((n3)))
         st.write("Calculating your TAM Value")
-        st.write(str(number_of_people*number))
+        st.write(str(n3*n1))
         # f = 1
         # st.write("Enter your email to get TAM value")
         # with st.form("email_form"):
@@ -129,7 +128,7 @@ with st.form("my_email"):
     submit_button2 = st.form_submit_button("Submit Email")
 if submit_button2:
     sheet = client.open('form_to_sheet').sheet1
-    l = [n1, ' '.join(o1),' '.join(o2),' '.join(o3),tam_value2, o5]
+    l = [n1, ' '.join(o1),' '.join(o2),' '.join(o3),n1*n3, o5]
     sheet.append_row(l)
     st.write(l)
     st.write(n3)
