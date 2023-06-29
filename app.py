@@ -14,6 +14,12 @@ from time import sleep
 
 # Create two columns
 col1, col2 = st.columns(2)
+o1 = ''
+o2 = ''
+o3 = ''
+o4 = ''
+o5 = ''
+
 
 # Content for the left column
 with col1:
