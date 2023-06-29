@@ -80,12 +80,13 @@ with col1:
 f = 0
 # Content for the right column
 tam_value2 = 0
-
+n3 =0
 with col2:
     st.header("Output : ")
-    
+    n3 = 0
     if submit_button:
         number_of_people = 0
+        n3 = number_of_people
         for option in option3:
             if option == '1-5':
                 number_of_people += len(df[(df['Specialization'].isin(option1)) & (df['Location'].isin(option2)) & (df['Experience(years)']<= 5)])
@@ -131,6 +132,7 @@ if submit_button2:
     l = [n1, ' '.join(o1),' '.join(o2),' '.join(o3),tam_value2, o5]
     sheet.append_row(l)
     st.write(l)
+    st.write(n3)
             # # Read data from the sheet
             # data = sheet.get_all_records()
             
