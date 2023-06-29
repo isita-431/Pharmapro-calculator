@@ -19,7 +19,7 @@ o2 = ''
 o3 = ''
 # o4 = ''
 o5 = ''
-tam_value2 = 0
+
 n1 =''
 
 # Content for the left column
@@ -80,6 +80,7 @@ with col1:
     # Add content to the left column
 f = 0
 # Content for the right column
+tam_value2 = 0
 with col2:
     st.header("Output : ")
     
