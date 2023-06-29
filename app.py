@@ -114,7 +114,7 @@ with col2:
         # if button_submit:    
         # sheet = client.open('form_to_sheet').sheet1
         tam_value = number_of_people*number
-        global tam_value2 = tam_value
+        tam_value2 = tam_value
         st.write(tam_value2)
                 # b = st.button('Click this button')
                 # if b:
