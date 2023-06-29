@@ -79,7 +79,7 @@ with col1:
     # Add content to the left column
 f = 0
 # Content for the right column
-global tam_value2 = 0
+tam_value2 = 0
 
 with col2:
     st.header("Output : ")
@@ -104,8 +104,8 @@ with col2:
         st.write("The number of the doctors are : "+ str((number_of_people)))
         st.write("Calculating your TAM Value")
         st.write(str(number_of_people*number))
-        f = 1
-        st.write("Enter your email to get TAM value")
+        # f = 1
+        # st.write("Enter your email to get TAM value")
         # with st.form("email_form"):
         #     email = st.text_input(" Enter the email : ")
         #     button_submit = st.form_submit_button("Submit email")
