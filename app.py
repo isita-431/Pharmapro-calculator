@@ -19,7 +19,7 @@ o2 = ''
 o3 = ''
 # o4 = ''
 o5 = ''
-tam_value2 = ''
+tam_value2 = 0
 n1 =''
 
 # Content for the left column
