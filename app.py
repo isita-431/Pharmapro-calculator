@@ -18,7 +18,7 @@ o1 = ''
 o2 = ''
 o3 = ''
 o4 = ''
-o5 = ''
+# o5 = ''
 
 
 # Content for the left column
@@ -66,9 +66,13 @@ with col1:
         number = st.number_input("Enter a Value")
         st.write("Enter the necessary information " )
         option1 = st.multiselect("Select a speciality", df['Specialization'].unique())
+        o1 = option1
         option2 = st.multiselect("Select a Location", df['Location'].unique())
+        o2 = option2
         option3 = st.multiselect("Select years of experience",['1-5','6-10','11-15','16-20','21-25','>25'])
+        o3 = option3
         option4 = st.text_input("Enter your email to get the TAM value mailed : ")
+        o4 = option4
         submit_button = st.form_submit_button("Submit")
     
     # Add content to the left column
@@ -113,7 +117,8 @@ with col2:
         l = [number, ' '.join(option1),' '.join(option2),' '.join(option3),tam_value,option4]
         # st.write(l)
         sheet.append_row(l)
-            
+
+st.write(o1,o2,o3,o4)
             # # Read data from the sheet
             # data = sheet.get_all_records()
             
