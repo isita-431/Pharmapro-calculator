@@ -125,8 +125,8 @@ if submit_button2:
     sheet = client.open('form_to_sheet').sheet1
     l = [n1, ' '.join(o1),' '.join(o2),' '.join(o3),n1*n3, o5]
     sheet.append_row(l)
-    st.write(l)
-    st.write(n3)
+    # st.write(l)
+    # st.write(n3)
             # # Read data from the sheet
             # data = sheet.get_all_records()
             
